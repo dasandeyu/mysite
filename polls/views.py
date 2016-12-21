@@ -6,6 +6,7 @@ from .models import Question
 
 # Create your views here.
 def index(request):
+    # 常见的习惯是载入一个模板、填充一个context 然后返回一个含有模板渲染结果的HttpResponse对象
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     template = loader.get_template('polls/index.html')
     contex = RequestContext(request, {'latest_question_list': latest_question_list})
