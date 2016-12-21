@@ -1,16 +1,17 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template import RequestContext, loader
 from .models import Question
 
 
 # Create your views here.
 def index(request):
-    # 常见的习惯是载入一个模板、填充一个context 然后返回一个含有模板渲染结果的HttpResponse对象
+    # 另外一种方法，使用render
+    # render()函数将请求对象作为它的第一个参数，模板的名字作为它的第二个参数，一个字典作为它可选的第三个参数。 它返回一个HttpResponse对
+    # 象，含有用给定的context 渲染后的模板
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('polls/index.html')
-    contex = RequestContext(request, {'latest_question_list': latest_question_list})
-    return HttpResponse(template.render(contex))
+    contex = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', contex)
 
 
 def detail(request, question_id):
