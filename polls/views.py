@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .models import Question
 
 
-# Create your views here. hello
+# Create your views here.
 def index(request):
     # 另外一种方法，使用render
     # render()函数将请求对象作为它的第一个参数，模板的名字作为它的第二个参数，一个字典作为它可选的第三个参数。 它返回一个HttpResponse对
