@@ -21,6 +21,6 @@
 6. 创建超级管理员 
     - python manage.py createsuperuser
     > 当前超级管理员配置  
-      username:lanxiang_sh  
-      Email:lanxiang_sh@ushareit.com  
+      username:admin  
+      Email:admin@example.com
       password:0
